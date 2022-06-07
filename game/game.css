@@ -1,0 +1,47 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #34a6fb;
+}
+
+.background {
+	background: #34a6fb;
+	table-layout: fixed;
+	border-spacing: 0;
+}
+.background td {
+	padding: 0;
+}
+.lava {
+	background: #ff6464;
+}
+.wall {
+	background: white;
+}
+
+.actor {
+	position: absolute;
+}
+.coin {
+	background: f1e559;
+}
+.player {
+	background: #404040;
+	border-radius: 5px;
+}
+
+.game {
+  overflow: hidden;
+  max-width: /*900px*/100vw;
+  max-height: /*600px*/100vh;
+	position: relative;
+}
+
+.lost .player {
+  background: #ff0000;
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white, -4px 7px 8px white, 4px 7px 8px white;
+}
