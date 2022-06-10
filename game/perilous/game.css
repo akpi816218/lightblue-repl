@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 html, body {
 	margin: 0;
 	padding: 0;
-	width: 100vw;
-	height: 100vh;
 	background: #34a6fb;
+	font-family: 'Press Start 2P', monospace;
 }
 
 .background {
@@ -25,7 +25,7 @@ html, body {
 	position: absolute;
 }
 .coin {
-	background: f1e559;
+	background: #f1e559;
 }
 .player {
 	background: #404040;
@@ -44,4 +44,4 @@ html, body {
 }
 .won .player {
   box-shadow: -4px -7px 8px white, 4px -7px 8px white, -4px 7px 8px white, 4px 7px 8px white;
-}
+} 

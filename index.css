@@ -3,16 +3,16 @@ html, body {
 	background: rgb(52, 166, 251);
 	font-family: "Press Start 2P", monospace;
 	color: white;
-	font-size: 1.25em;
+	font-size: 1.125em;
 	text-align: center;
 	margin: 0;
 	padding: 0;
 	padding-top: 25px;
-	width: 100vw;
-	height: 100vh;
+	padding-bottom: 25px;
 }
 h1 {
 	font-size: 2.5em;
+	margin: 1em;
 }
 a {
 	color: #404040
@@ -31,8 +31,12 @@ table {
 tr {
 	display: flex;
 	align-items: center;
+	min-height: 1em;
 	margin: 0;
 	padding: 0;
+}
+tr.empty {
+	min-height: 1.5em;
 }
 td {
 	width: 47.5vw;
@@ -45,9 +49,28 @@ td.left {
 td.right {
 	text-align: left;
 }
-.red {
-	color: rgb(255, 100, 100);
+
+p {
+	line-height: 2em;
 }
-.dark {
-	color: rgb(64, 64, 64);
+
+span.lava {
+	display: inline-block;
+	background-color: #ff6464;
+	height: 1em;
+	width: 1em;
+}
+span.coin {
+	display: inline-block;
+	background-color: #f1e559;
+	height: 0.6em;
+	width: 0.6em;
+	line-height: 1.5em;
+}
+span.player {
+	display: inline-block;
+	background-color: #404040;
+	height: 1em;
+	width: 1em;
+	border-radius: 7.5px;
 }
