@@ -44,4 +44,9 @@ html, body {
 }
 .won .player {
   box-shadow: -4px -7px 8px white, 4px -7px 8px white, -4px 7px 8px white, 4px 7px 8px white;
-} 
+}
+
+audio {
+	
+	height: 0;
+}

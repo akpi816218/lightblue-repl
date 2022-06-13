@@ -348,8 +348,7 @@ function runLevel(level, Display) {
 }
 
 async function runGame(plans, Display) {
-	const msgs = ["That was easy! Ready for the first (real) level? (by squeakynugget)", "That was pretty easy, huh? Here, let's try a different style (by squeakynugget)", "Alright, it's time for a real challenge! — or not >:D (by Shadowleafy)", "Don't let the lava catch up! (by Shadowleafy)", "Ooh, you're pretty good! Hope you have the endurance for this one! (by Shadowleafy)", "Alright, I think you've proven yourself worthy of a truly difficult level. Enjoy! (by Shadowleafy)"];
-	alert("Here's the intro level. Collect all the coins to win! -squeakynugget");
+	const msgs = ["That was an easy intro level! Ready for the first (real) level?", "That was pretty easy, huh? Here, let's try a different style.", "All right, it's time for a real challenge.", "Don't let the lava catch up!", "Ooh, you're pretty good! Hope you have the endurance for this one!", "Alright, I think you've proven yourself worthy of a truly difficult level. Enjoy!"];
 	for (let level = 0; level < plans.length;) {
 		let status = await runLevel(new Level(plans[level]), Display);
 		if (status == "won") {
@@ -357,5 +356,5 @@ async function runGame(plans, Display) {
 			alert(msgs[level-1]);
 		}
 	}
-	alert("Congratulations! You've beaten Light Blue (for now)... More levels to come! You can try Perilous mode if you'd like, just be warned, we did not hold back :D");
+	alert("Congratulations! You've beaten Light Blue (for now)... More levels to come! You can try Perilous mode if you'd like — just be warned, we did not hold back on this one, so it will be a real challenge!");
 }
