@@ -1,8 +1,8 @@
-name: Path lister example
+name: Path lister SVG
 on: [push]
 jobs:
   list:
-    name: Path lister
+    name: Path lister SVG
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python 3.7
@@ -16,12 +16,15 @@ jobs:
         id: pl
         uses: Rishabh510/Path-lister-action@master
         with:
-          path: "/"
+          path: "./"
           type: ".svg"
 
       - name: Output results
         run: |
           echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
+          echo "[" >> ./list.txt
           for i in ${{ steps.pl.outputs.paths }}; do
           echo $i
+          echo "'${i}', " >> ./list.txt
           done
+          echo "];" >> ./list.txt

@@ -1,8 +1,8 @@
-name: Path lister example
+name: Path lister HTML
 on: [push]
 jobs:
   list:
-    name: Path lister
+    name: Path lister HTML
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python 3.7
@@ -16,7 +16,7 @@ jobs:
         id: pl
         uses: Rishabh510/Path-lister-action@master
         with:
-          path: "/"
+          path: "./"
           type: ".html"
 
       - name: Output results
