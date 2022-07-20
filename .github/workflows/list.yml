@@ -32,4 +32,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: List files
         run: |
-          python3 ./list.py
+          python3 list.py
