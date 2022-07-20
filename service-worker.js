@@ -1,6 +1,6 @@
 self.addEventListener("install", (event) => {
 	event.waitUntil(
-		caches.open("cache").then((cache) => {
+		caches.open("lightblue").then((cache) => {
 			cache.addAll([
 				'./index.html',
 				'./game/normal/index.html',
