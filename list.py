@@ -10,7 +10,7 @@ mp3 = glob.glob('./' + '/**/*.mp3', recursive=True)
 # ogg = glob.glob('./' + '/**/*.ogg', recursive=True)
 print('Writing...')
 split = "',\n\t'"
-text = "[\n\t'"+split.join(html)+split+split.join(css)+split+split.join(js)+split+split.join(svg)+split+split.join(ico)+split+split.join(wav)+split+split.join(mp3)+"\n]"
+text = "[\n\t'"+split.join(html)+split+split.join(css)+split+split.join(js)+split+split.join(svg)+split+split.join(ico)+split+split.join(wav)+split+split.join(mp3)+"'\n]"
 list = open('list.txt', 'w')
 list.write(text)
 list.close()
