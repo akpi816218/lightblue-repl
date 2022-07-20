@@ -19,7 +19,7 @@ self.addEventListener("install", (event) => {
 				'./music/LightBlues.wav',
 				'./music/MizuiroNoTenshon.wav',
 				'./music/LightBlues.mp3',
-				'./music/Vincent.mp3
+				'./music/Vincent.mp3'
 			]);
 		})
 	);
