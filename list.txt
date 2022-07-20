@@ -1,5 +1,5 @@
 [
-'./index.html',
+	'./index.html',
 	'./game/normal/index.html',
 	'./game/perilous/index.html',
 	'./index.css',
