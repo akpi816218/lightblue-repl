@@ -9,3 +9,5 @@ jobs:
         run: python3 list.py
       - name: Commit & push
         run: bash push.sh
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
