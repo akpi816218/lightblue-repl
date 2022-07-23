@@ -23,13 +23,13 @@ self.addEventListener("install", (event) => {
 				'./game/normal/levels.js',
 				'./game/perilous/game.js',
 				'./game/perilous/levels.js',
-				'./menu/img/musicOff.svg',
 				'./menu/img/musicOn.svg',
+				'./menu/img/musicOff.svg',
 				'./favicon.ico',
 				'./music/LightBlues.wav',
 				'./music/MizuiroNoTenshon.wav',
-				'./music/Vincent.mp3',
-				'./music/LightBlues.mp3'
+				'./music/LightBlues.mp3',
+				'./music/Vincent.mp3'
 			]);
 		})
 	);
