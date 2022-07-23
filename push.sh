@@ -1,5 +1,5 @@
 #!/bin/bash
-ts=$(date -u "%m-%d-%Y %H:%M:%S")
+ts=$(date -u +"%m-%d-%Y %H:%M:%S")
 git config http.sslVerify false
 git config --local user.email "github-actions[bot]@users.noreply.github.com"
 git config --local user.name "github-actions[bot]"
