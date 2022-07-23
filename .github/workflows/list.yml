@@ -1,7 +1,7 @@
-name: File Path Lister
+name: File Census
 on: [push, pull_request, workflow_dispatch]
 jobs:
-  build:
+  run-census:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
