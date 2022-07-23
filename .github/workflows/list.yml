@@ -9,5 +9,4 @@ jobs:
       - name: List files; update service worker
         run: python3 list.py
       - name: Commit & push
-        uses: actions/checkout@v3
         run: bash push.sh
