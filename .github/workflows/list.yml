@@ -2,12 +2,12 @@ name: File Path Lister
 on: [push, pull_request]
 workflow_dispatch:
 jobs:
-	build:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v3
-			- name: List files; update service worker
-				run: python3 list.py
-			- name: Commit & push
-				uses: actions/checkout@v3
-				run: bash push.sh
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: List files; update service worker
+        run: python3 list.py
+      - name: Commit & push
+        uses: actions/checkout@v3
+        run: bash push.sh
