@@ -2,7 +2,7 @@
 
 Hey there, fellow developer!
 
-You're welcome to mod this game, but here's a few things you should know:
+You're welcome to modify this game, but here's a few things you should know:
 
 - The levels are stored in an array called `GAME_LEVELS` in `levels.js`. The elements are as follows:
 - `o`: coin
