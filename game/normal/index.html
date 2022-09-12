@@ -3,19 +3,19 @@
 <html>
 <head>
 	<title>Light Blue | Game | Normal</title>
-	<link rel="stylesheet" type="text/css" href="game.css">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="./game.css">
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-	<audio muted loop src="/music/MizuiroNoTenshon.wav" type="audio/wav"></audio>
+	<audio muted loop src="../../music/MizuiroNoTenshon.wav" type="audio/wav"></audio>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="./game.js"></script>
 	<script src="./levels.js"></script>
-	<script src="/music.js"></script>
+	<script src="../../music.js"></script>
 	<script>
 		if ("serviceWorker" in navigator) {
-			navigator.serviceWorker.register("/service-worker.js").then((registration) => {}).catch((error) => {
+			navigator.serviceWorker.register("../../service-worker.js").then((registration) => {}).catch((error) => {
 				console.log(error.toString());
 			});
 		}
@@ -25,29 +25,29 @@
 				this.base = document.createElement('div');
 				this.base.id = 'menu';
 				document.body.appendChild(this.base);
-				
+
 				this.home = document.createElement('a');
 				this.home.href = '/';
 				this.home.id = 'home';
 				this.home.innerText = 'Home Page';
 				this.base.appendChild(this.home);
-				
+
 				this.musicLabel = document.createElement('label');
 				this.musicLabel.id = 'music-lbl';
 				this.musicLabel.for = 'music-btn';
 				this.musicLabel.innerText = 'Music';
 				this.base.appendChild(this.musicLabel);
-				
+
 				this.music = document.createElement('button');
 				this.music.id = 'music-btn';
-				this.music.style.backgroundImage = "url('/menu/img/musicOn.svg')";
+				this.music.style.backgroundImage = "url('../../menu/img/musicOn.svg')";
 				this.music.onclick = () => {
 					toggleMusic();
 					let a = document.querySelector('audio');
 					if (a.paused == true) {
-						this.music.style.backgroundImage = "url('/menu/img/musicOff.svg')";
+						this.music.style.backgroundImage = "url('../../menu/img/musicOff.svg')";
 					} else {
-						this.music.style.backgroundImage = "url('/menu/img/musicOn.svg')";
+						this.music.style.backgroundImage = "url('../../menu/img/musicOn.svg')";
 					}
 				};
 				this.base.appendChild(this.music);
@@ -61,7 +61,7 @@
 		}
 
 		const menu = new Menu();
-		
+
 		function runLevel(level, Display) {
 			let display = new Display(document.body, level);
 			let state = State.start(level);
