@@ -10,11 +10,11 @@
 	'./game/perilous/levels.js',
 	'./game/normal/game.js',
 	'./game/normal/levels.js',
-	'./menu/img/musicOn.svg',
 	'./menu/img/musicOff.svg',
+	'./menu/img/musicOn.svg',
 	'./favicon.ico',
-	'./music/MizuiroNoTenshon.wav',
 	'./music/LightBlues.wav',
+	'./music/MizuiroNoTenshon.wav',
 	'./music/LightBlues.mp3',
 	'./music/Vincent.mp3'
 ]
