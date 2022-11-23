@@ -310,7 +310,7 @@ function trackKeys(keys) {
 	return down;
 }
 
-var arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
+var arrowKeys = trackKeys(["a", "d", "w"]);
 
 function runAnimation(frameFunc) {
 	let lastTime = null;
