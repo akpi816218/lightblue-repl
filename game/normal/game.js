@@ -348,7 +348,7 @@ function runLevel(level, Display) {
 }
 
 async function runGame(plans, Display) {
-	const msgs = ["That was an easy intro level! Ready for the first (real) level?", "That was pretty easy, huh? Here, let's try a different style.", "All right, it's time for a real challenge.", "Don't let the lava catch up!", "Ooh, you're pretty good! Hope you have the endurance for this one!", "Alright, I think you've proven yourself worthy of a truly difficult level. Enjoy!"];
+	const msgs = ["That was an easy intro level! Ready for the first (real) level?", "That was pretty easy, huh? Here, let's try a different style.", "All right, it's time for a real challenge.", "Don't let the lava catch up!", "Ooh, you're pretty good! However, this one will be your undoing =)", "Alright, I think you've proven yourself worthy of a truly difficult level. Enjoy!"];
 	for (let level = 0; level < plans.length;) {
 		let status = await runLevel(new Level(plans[level]), Display);
 		if (status == "won") {
