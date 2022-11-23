@@ -6,6 +6,7 @@
 	'./game/perilous/game.css',
 	'./game/normal/game.css',
 	'./service-worker.js',
+	'./music.js',
 	'./game/perilous/game.js',
 	'./game/perilous/levels.js',
 	'./game/normal/game.js',
