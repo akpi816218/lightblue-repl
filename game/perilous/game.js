@@ -348,7 +348,7 @@ function runLevel(level, Display) {
 }
 
 async function runGame(plans, Display) {
-	const msgs = ["Well done! Unfortunately, if you remember the difficulty curve of normal mode, you'll know that this is just the beginning. It's time to test your endurance again!", "Wow, you must be tired, you should take a break before this next one, you'll need to be alert!"];
+	const msgs = ["Well done! Unfortunately, if you remember the difficulty curve of normal mode, you'll know that this is just the beginning. It's time to test your endurance again!", "Wow, you must be tired, you should take a break before this next one, you'll need to be alert!", "Do you like towers? I hope you do! =)", "Another endurance test, can you do it? (By the way, those runs are 3 frame tricks!)", "hehe, good luck =)"];
 	alert("If you finished Normal Mode, you'll remember how to beat this. If not, well, not even luck can save you here.");
 	for (let level = 0; level < plans.length;) {
 		let status = await runLevel(new Level(plans[level]), Display);
