@@ -1,133 +1,142 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-	<title>Light Blue | Game | Perilous</title>
-	<link rel="stylesheet" type="text/css" href="./game.css">
-		<link rel="icon" href="../../favicon.ico" type="image/x-icon">
-</head>
+	<head>
+		<title>Light Blue | Game | Perilous</title>
+		<link rel="stylesheet" type="text/css" href="./game.css" />
+		<link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+	</head>
 
-<body>
-	<audio muted="true" loop="true" src="../../music/Vincent.mp3" type="audio/mpeg"></audio>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="./game.js"></script>
-	<script src="./levels.js"></script>
-	<script src="../../music.js"></script>
-	<script>
-		if ("serviceWorker" in navigator) {
-			navigator.serviceWorker.register("../../service-worker.js").then((registration) => {}).catch((error) => {
-				console.log(error.toString());
-			});
-		}
+	<body>
+		<iframe
+			src="../../music/Vincent.mp3"
+			allow="autoplay"
+			style="display: none;"
+		></iframe>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./game.js"></script>
+		<script src="./levels.js"></script>
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker
+					.register('../../service-worker.js')
+					.then((registration) => {})
+					.catch((error) => {
+						console.log(error.toString());
+					});
+			}
 
-		class Menu {
-			constructor() {
-				this.base = document.createElement('div');
-				this.base.id = 'menu';
-				document.body.appendChild(this.base);
+			class Menu {
+				constructor() {
+					this.base = document.createElement('div');
+					this.base.id = 'menu';
+					document.body.appendChild(this.base);
 
-				this.home = document.createElement('a');
-				this.home.href = '/';
-				this.home.id = 'home';
-				this.home.innerText = 'Home Page';
-				this.base.appendChild(this.home);
+					this.home = document.createElement('a');
+					this.home.href = '/';
+					this.home.id = 'home';
+					this.home.innerText = 'Home Page';
+					this.base.appendChild(this.home);
 
-				this.musicLabel = document.createElement('label');
-				this.musicLabel.id = 'music-lbl';
-				this.musicLabel.for = 'music-btn';
-				this.musicLabel.innerText = 'Music';
-				this.base.appendChild(this.musicLabel);
+					this.musicLabel = document.createElement('label');
+					this.musicLabel.id = 'music-lbl';
+					this.musicLabel.for = 'music-btn';
+					this.musicLabel.innerText = 'Music';
+					this.base.appendChild(this.musicLabel);
 
-				this.music = document.createElement('button');
-				this.music.id = 'music-btn';
-				this.music.style.backgroundImage = "url('../../menu/img/musicOn.svg')";
-				this.music.onclick = () => {
-					toggleMusic();
-					let a = document.querySelector('audio');
-					if (a.paused == true) {
-						this.music.style.backgroundImage = "url('../../menu/img/musicOff.svg')";
-					} else {
-						this.music.style.backgroundImage = "url('../../menu/img/musicOn.svg')";
+					this.music = document.createElement('button');
+					this.music.id = 'music-btn';
+					this.music.style.backgroundImage =
+						"url('../../menu/img/musicOn.svg')";
+					this.music.onclick = () => {
+						toggleMusic();
+						let a = document.querySelector('audio');
+						if (a.paused == true) {
+							this.music.style.backgroundImage =
+								"url('../../menu/img/musicOff.svg')";
+						} else {
+							this.music.style.backgroundImage =
+								"url('../../menu/img/musicOn.svg')";
+						}
+					};
+					this.base.appendChild(this.music);
+				}
+				open() {
+					this.base.style.display = 'inline-block';
+				}
+				close() {
+					this.base.style.display = 'none';
+				}
+			}
+
+			const menu = new Menu();
+
+			function runLevel(level, Display) {
+				let display = new Display(document.body, level);
+				let state = State.start(level);
+				let ending = 1;
+				let running = 'yes';
+
+				return new Promise((resolve) => {
+					function escHandler(event) {
+						if (event.key != 'Escape') return;
+						event.preventDefault();
+						if (running == 'no') {
+							running = 'yes';
+							menu.close();
+							runAnimation(frame);
+						} else if (running == 'yes') {
+							running = 'pausing';
+							menu.open();
+						} else {
+							running = 'yes';
+						}
 					}
+					window.addEventListener('keydown', escHandler);
+					let arrowKeys = trackKeys(['ArrowLeft', 'ArrowRight', 'ArrowUp']);
+
+					function frame(time) {
+						if (running == 'pausing') {
+							running = 'no';
+							return false;
+						}
+
+						state = state.update(time, arrowKeys);
+						display.syncState(state);
+						if (state.status == 'playing') {
+							return true;
+						} else if (ending > 0) {
+							ending -= time;
+							return true;
+						} else {
+							display.clear();
+							window.removeEventListener('keydown', escHandler);
+							arrowKeys.unregister();
+							resolve(state.status);
+							return false;
+						}
+					}
+					runAnimation(frame);
+				});
+			}
+			function trackKeys(keys) {
+				let down = Object.create(null);
+				function track(event) {
+					if (keys.includes(event.key)) {
+						down[event.key] = event.type == 'keydown';
+						event.preventDefault();
+					}
+				}
+				window.addEventListener('keydown', track);
+				window.addEventListener('keyup', track);
+				down.unregister = () => {
+					window.removeEventListener('keydown', track);
+					window.removeEventListener('keyup', track);
 				};
-				this.base.appendChild(this.music);
+				return down;
 			}
-			open() {
-				this.base.style.display = 'inline-block';
-			}
-			close() {
-				this.base.style.display = 'none';
-			}
-		}
 
-		const menu = new Menu();
-
-		function runLevel(level, Display) {
-			let display = new Display(document.body, level);
-			let state = State.start(level);
-			let ending = 1;
-			let running = "yes";
-
-			return new Promise(resolve => {
-				function escHandler(event) {
-					if (event.key != "Escape") return;
-					event.preventDefault();
-					if (running == "no") {
-						running = "yes";
-						menu.close();
-						runAnimation(frame);
-					} else if (running == "yes") {
-						running = "pausing";
-						menu.open();
-					} else {
-						running = "yes";
-					}
-				}
-				window.addEventListener("keydown", escHandler);
-				let arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
-
-				function frame(time) {
-					if (running == "pausing") {
-						running = "no";
-						return false;
-					}
-
-					state = state.update(time, arrowKeys);
-					display.syncState(state);
-					if (state.status == "playing") {
-						return true;
-					} else if (ending > 0) {
-						ending -= time;
-						return true;
-					} else {
-						display.clear();
-						window.removeEventListener("keydown", escHandler);
-						arrowKeys.unregister();
-						resolve(state.status);
-						return false;
-					}
-				}
-				runAnimation(frame);
-			});
-		}
-		function trackKeys(keys) {
-			let down = Object.create(null);
-			function track(event) {
-				if (keys.includes(event.key)) {
-					down[event.key] = event.type == "keydown";
-					event.preventDefault();
-				}
-			}
-			window.addEventListener("keydown", track);
-			window.addEventListener("keyup", track);
-			down.unregister = () => {
-				window.removeEventListener("keydown", track);
-				window.removeEventListener("keyup", track);
-			};
-			return down;
-		}
-
-		runGame(GAME_LEVELS, DOMDisplay);
-	</script>
-</body>
+			runGame(GAME_LEVELS, DOMDisplay);
+		</script>
+	</body>
 </html>

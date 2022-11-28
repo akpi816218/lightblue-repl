@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="keywords" content="platformer, light blue, game">
-		<meta name="description" content="Light Blue is a platformer based off the game Dark Blue.">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="keywords" content="platformer, light blue, game" />
+		<meta
+			name="description"
+			content="Light Blue is a platformer based off the game Dark Blue."
+		/>
 		<title>Light Blue | Home</title>
-		<link rel="stylesheet" href="index.css">
-		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="index.css" />
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
 	</head>
 
 	<body>
-		<audio muted loop src="./music/LightBlues.wav" type="audio/wav">Audio Unable to Play</audio>
+		<iframe
+			src="./music/LightBlues.wav"
+			allow="autoplay"
+			style="display: none;"
+		></iframe>
 		<a href="./game/normal/">Play Normal Mode</a>
-		<br><br>
+		<br /><br />
 		<a href="./game/perilous/">Play Perilous Mode</a>
 		<h2>Credits</h2>
 		<table>
 			<tr>
 				<td class="left">Skeleton Code:</td>
-				<td class="right"><a href="https://eloquentjavascript.net/">Eloquent Javascript</a></td>
+				<td class="right">
+					<a href="https://eloquentjavascript.net/">Eloquent Javascript</a>
+				</td>
 			</tr>
 			<tr class="empty"></tr>
 			<tr>
 				<td class="left">Code:</td>
-				<td class="right"><a href="https://replit.com/@akhilpil0308">squeakynugget</a></td>
+				<td class="right">
+					<a href="https://replit.com/@akhilpil0308">squeakynugget</a>
+				</td>
 			</tr>
 			<tr class="empty"></tr>
 			<tr>
 				<td class="left">Normal Level Design:</td>
-				<td class="right"><a href="https://replit.com/@akhilpil0308">squeakynugget</a></td>
+				<td class="right">
+					<a href="https://replit.com/@akhilpil0308">squeakynugget</a>
+				</td>
 			</tr>
 			<tr class="empty"></tr>
 			<tr>
 				<td class="left">Perilous Level Design</td>
-				<td class="right"><a href="https://replit.com/@Shadowleafy">Shadowleafy</a></td>
+				<td class="right">
+					<a href="https://replit.com/@Shadowleafy">Shadowleafy</a>
+				</td>
 			</tr>
 		</table>
-		<br><br>
+		<br /><br />
 		<h3>Music</h3>
 		<h4>Light Blues</h4>
-		<p>By squeakynugget<br>Featured on this page</p>
-		<br>
+		<p>By squeakynugget<br />Featured on this page</p>
+		<br />
 		<h4>Mizuiro no Tenshon (Light Blue Tension)</h4>
-		<p>By Shadowleafy<br>Featured in Normal Mode</p>
-		<br>
+		<p>By Shadowleafy<br />Featured in Normal Mode</p>
+		<br />
 		<h4>Untitled</h4>
-		<p>By Vincent<br>Featured in Perilous Mode</p>
-		<br><br><hr><br>
+		<p>By Vincent<br />Featured in Perilous Mode</p>
+		<br /><br />
+		<hr />
+		<br />
 		<h2>How to Play</h2>
-		<p>You are the player (<span class="player"></span>). Use the arrow keys to move. Don't touch lava (<span class="lava"></span>). Collect all of coins (<span class="coin"></span>) to advance to the next level. Good Luck!<br><br>NOTE: This platformer game is not mobile-friendly.</p>
+		<p>
+			You are the player (<span class="player"></span>). Use the arrow keys to
+			move. Don't touch lava (<span class="lava"></span>). Collect all of coins
+			(<span class="coin"></span>) to advance to the next level. Good Luck!<br /><br />NOTE:
+			This platformer game is not mobile-friendly.
+		</p>
 		<script src="./music.js"></script>
 		<script>
-			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker.register("./service-worker.js").then((registration) => {}).catch((error) => {
-					console.log(error.toString());
-		 		});
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker
+					.register('./service-worker.js')
+					.then((registration) => {})
+					.catch((error) => {
+						console.log(error.toString());
+					});
 			}
 		</script>
 	</body>
-
 </html>
